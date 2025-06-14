@@ -7,7 +7,12 @@ namespace MyFirstEntityAPI.DATA
     {
         public MyEntityDbContext(DbContextOptions<MyEntityDbContext> options) : base(options) 
         {
-            
+#if DEBUG
+//sdfsghj
+#else
+            Database.Migrate();
+#endif
+
         }
 
         public DbSet<Computer> Computers { get; set; }
